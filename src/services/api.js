@@ -1,4 +1,4 @@
-const API_URL = "http://187.127.0.158:8080/api";
+const API_URL = "https://api.reachfy.com.br/api";
  
 export async function registerUser({ nome, email, senha }) {
   const response = await fetch(`${API_URL}/register`, {
