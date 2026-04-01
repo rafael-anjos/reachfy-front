@@ -1,81 +1,79 @@
-import { useState } from 'react'
-import { registerUser } from '../../services/api'
-import './styles.css'
- 
+import { useState } from "react";
+import { registerUser } from "../../services/api";
+import "./styles.css";
+
 function Register() {
-  const [formData, setFormData] = useState({
-    nome: '',
-    email: '',
-    senha: '',
-  })
-  const [loading, setLoading] = useState(false)
-  const [message, setMessage] = useState({ text: '', type: '' })
- 
-  function handleChange(e) {
-    const { name, value } = e.target
-    setFormData((prev) => ({ ...prev, [name]: value }))
-  }
- 
+  const [nome, setNome] = useState("");
+  const [email, setEmail] = useState("");
+  const [senha, setSenha] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
+
   async function handleSubmit(e) {
-    e.preventDefault()
-    setLoading(true)
-    setMessage({ text: '', type: '' })
- 
+    e.preventDefault();
+    setLoading(true);
+    setError(null);
+
     try {
-      const data = await registerUser(formData)
- 
-      // Salva o token no localStorage para usar em requisições futuras
-      localStorage.setItem('token', data.token)
-      localStorage.setItem('userName', data.nome)
- 
-      setMessage({ text: `Cadastro realizado com sucesso! Bem-vindo, ${data.nome}.`, type: 'success' })
-      setFormData({ nome: '', email: '', senha: '' })
-    } catch (error) {
-      setMessage({ text: error.message, type: 'error' })
+      await registerUser({ nome, email, senha });
+    } catch (err) {
+      setError(err.message);
     } finally {
-      setLoading(false)
+      setLoading(false);
     }
   }
- 
+
   return (
-    <div className=''>
-      <form onSubmit={handleSubmit} className='register-form'>
-        <h1>Cadastro</h1>
- 
-        {message.text && (
-          <p className={`message ${message.type}`}>{message.text}</p>
-        )}
- 
-        <input
-          name='nome'
-          type='text'
-          placeholder='Nome'
-          value={formData.nome}
-          onChange={handleChange}
-          required
-        />
-        <input
-          name='email'
-          type='email'
-          placeholder='E-mail'
-          value={formData.email}
-          onChange={handleChange}
-          required
-        />
-        <input
-          name='senha'
-          type='password'
-          placeholder='Senha'
-          value={formData.senha}
-          onChange={handleChange}
-          required
-        />
-        <button type='submit' disabled={loading}>
-          {loading ? 'Cadastrando...' : 'Cadastrar'}
-        </button>
-      </form>
+    <div className="container">
+      <div className="register-screen">
+        <form className="register-form" onSubmit={handleSubmit}>
+
+          <h1>Get Started Now</h1>
+
+          <div className="inputs">
+            <div>
+              <p>Name</p>
+              <input
+                type="text"
+                placeholder="Enter your name"
+                value={nome}
+                onChange={(e) => setNome(e.target.value)}
+                required
+              />
+            </div>
+            <div>
+              <p>Email address</p>
+              <input
+                type="email"
+                placeholder="Enter your email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+              />
+            </div>
+            <div>
+              <p>Password</p>
+              <input
+                type="password"
+                placeholder="Enter your password"
+                value={senha}
+                onChange={(e) => setSenha(e.target.value)}
+                required
+                minLength={8}
+              />
+            </div>
+          </div>
+
+          {error && <p className="error-message">{error}</p>}
+
+          <button type="submit" disabled={loading}>
+            {loading ? "Signing up..." : "Sign up"}
+          </button>
+        </form>
+      </div>
+      <div className="image"></div>
     </div>
-  )
+  );
 }
- 
-export default Register
+
+export default Register;

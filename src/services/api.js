@@ -11,9 +11,9 @@ export async function registerUser({ nome, email, senha }) {
  
   if (!response.ok) {
     if (response.status === 400) {
-      throw new Error("Este e-mail já está cadastrado.");
+      throw new Error("This email is already registered.");
     }
-    throw new Error("Erro ao cadastrar. Tente novamente.");
+    throw new Error("Registration failed. Please try again.");
   }
  
   const data = await response.json();
