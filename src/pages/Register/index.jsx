@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { registerUser } from '../../services/api'
 import './styles.css'
  
-function Home() {
+function Register() {
   const [formData, setFormData] = useState({
     nome: '',
     email: '',
@@ -78,4 +78,4 @@ function Home() {
   )
 }
  
-export default Home
+export default Register
