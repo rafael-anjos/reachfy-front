@@ -1,8 +1,11 @@
 import { useState } from "react";
-import { registerUser } from "../../services/api";
+import { registerUser } from "../../services/Auth/register";
+import { useNavigate } from "react-router-dom"
 import "./styles.css";
 
 function Register() {
+  const navigate = useNavigate();
+
   const [nome, setNome] = useState("");
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
@@ -16,6 +19,7 @@ function Register() {
 
     try {
       await registerUser({ nome, email, senha });
+      navigate("/")
     } catch (err) {
       setError(err.message);
     } finally {

@@ -1,12 +1,11 @@
-const API_URL = "https://api.reachfy.com.br/api";
+const API_URL = "http://localhost:8080/api";
  
 export async function registerUser({ nome, email, senha }) {
   const response = await fetch(`${API_URL}/register`, {
     method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
+    headers: {"Content-Type": "application/json"},
     body: JSON.stringify({ nome, email, senha }),
+    credentials: "include"
   });
  
   if (!response.ok) {
@@ -15,7 +14,6 @@ export async function registerUser({ nome, email, senha }) {
     }
     throw new Error("Registration failed. Please try again.");
   }
- 
-  const data = await response.json();
-  return data; // { nome: string, token: string }
+
+  return response.json(); // { nome: string, token: string }
 }
