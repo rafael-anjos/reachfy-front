@@ -1,17 +1,18 @@
-.container {
+.container-login {
     display: flex;
+    height: 100vh;
 }
 
-.register-screen {
+.login-screen {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 111vh;
-    height: 100vh;
+    width: 50%;
+    height: 100%;
     gap: 15px;
 }
 
-.register-form {
+.login-form {
     display: flex;
     flex-direction: column;
     gap: 25px;
@@ -19,18 +20,18 @@
     height: 70%;
 }
 
-.register-form h1 {
+.login-form h1 {
     font-size: 35px;
     font-weight: 500;
 }
 
-.inputs {
+.inputs-login {
     display: flex;
     flex-direction: column;
     gap: 10px;
 }
 
-.inputs input {
+.inputs-login input {
     border: 1px solid;
     border-color: #d6d5d5;
     border-radius: 10px;
@@ -39,11 +40,11 @@
     width: 100%;
 }
 
-.inputs p {
+.inputs-login p {
     margin: 5px;
 }
 
-.register-form button {
+.login-form button {
     height: 40px;
     border-radius: 10px;
     border: 1px solid;
@@ -52,13 +53,13 @@
     cursor: pointer;
 }
 
-.register-form button:hover {
+.login-form button:hover {
     background-color: #333333;
     transition: all 0.3s ease;
 }
 
-.image {
+.image-login {
     background-color: grey;
     width: 50%;
-    height: 100vh;
+    height: 100%;
 }

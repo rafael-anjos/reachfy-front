@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom"
-import Register from './pages/Register'
-import Login from './pages/Login'
-import Inicio from './pages/Inicio'
+import Register from './pages/Register/register'
+import Login from './pages/Login/login'
+import Inicio from './pages/Inicio/inicio'
 
 function PrivateRoute({children}) {
   return children;

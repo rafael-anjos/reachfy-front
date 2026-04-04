@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { registerUser } from "../../services/Auth/register";
 import { useNavigate } from "react-router-dom"
-import "./styles.css";
+import "./register.css";
 
 function Register() {
   const navigate = useNavigate();
@@ -28,13 +28,13 @@ function Register() {
   }
 
   return (
-    <div className="container">
+    <div className="container-register">
       <div className="register-screen">
         <form className="register-form" onSubmit={handleSubmit}>
 
           <h1>Get Started Now</h1>
 
-          <div className="inputs">
+          <div className="inputs-register">
             <div>
               <p>Name</p>
               <input
@@ -75,7 +75,7 @@ function Register() {
           </button>
         </form>
       </div>
-      <div className="image"></div>
+      <div className="image-register"></div>
     </div>
   );
 }

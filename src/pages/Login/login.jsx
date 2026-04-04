@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { loginUser } from "../../services/Auth/login"
 import { useNavigate } from "react-router-dom"
-import "./styles.css"
+import "./login.css"
 
 function Login() {
     const navigate = useNavigate()
@@ -27,13 +27,13 @@ function Login() {
     }
 
   return (
-    <div className="container">
+    <div className="container-login">
       <div className="login-screen">
         <form className="login-form" onSubmit={handleSubmit}>
 
           <h1>Welcome back</h1>
 
-          <div className="inputs">
+          <div className="inputs-login">
             <div>
               <p>Email address</p>
               <input type="email" placeholder="Enter your email" value={email} onChange={(e) => setEmail(e.target.value)} required />
@@ -52,7 +52,7 @@ function Login() {
 
         </form>
       </div>
-      <div className="image"></div>
+      <div className="image-login"></div>
     </div>
   );
 }
