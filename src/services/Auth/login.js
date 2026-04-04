@@ -15,5 +15,6 @@ export async function loginUser({ email, senha }) {
     throw new Error("Login failed. Please try again.");
   }
 
-  return response.json();
+  const text = await response.text();
+  return text ? JSON.parse(text) : {};
 }
