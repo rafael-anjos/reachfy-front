@@ -1,0 +1,64 @@
+.container-inicio {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.navbar-inicio {
+    display: flex;
+    justify-content: center;
+    height: 13%;
+    border-bottom: 2px solid #c2c1c1;
+}
+
+.components-navbar {
+    display: flex;
+    align-items: center;
+    list-style-type: none;
+    gap: 4.5rem;
+    font-size: x-large;
+}
+
+.components-navbar button {
+    font-size: 0.98cm;
+    font-weight: 300;
+    height: 1.5cm;
+    width: 1.5cm;
+    border-radius: 100%;
+    border: 2px solid;
+    background-color: black;
+    color: aliceblue;
+    cursor: pointer;
+}
+
+.components-navbar button:hover {
+    background-color: transparent;
+    color: black;
+    transition: 0.1s ease-out;
+    box-shadow: 0px 3px 5px 1px rgba(0, 0, 0, 0.3);
+}
+
+.main-screen {
+    display: flex;
+    height: 100%;
+    width: 100%;
+}
+
+.publication-context {
+    display: flex;
+    justify-content: center;
+    border: 1px solid;
+    width: 80%;
+
+}
+
+.publication {
+    border: 1px solid;
+    width: 85%;
+}
+
+.suggestion-context {
+    border: 1px solid;
+    width: 20%;
+    height: 80%;
+}
