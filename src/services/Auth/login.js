@@ -1,4 +1,4 @@
-const API_URL = "http://localhost:8080/api";
+const API_URL = "https://api.reachfy.com.br/api";
 
 export async function loginUser({ email, senha }) {
   const response = await fetch(`${API_URL}/login`, {
